@@ -30,6 +30,9 @@ class MyApp extends StatelessWidget {
                     child: FirstRow(),
                   ),
                   ImageRow(),
+                  IconRow(),
+                  TestRow(),
+                  LastRow(),
                 ],
               ),
             )));
@@ -40,14 +43,8 @@ class FirstRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // color: Colors.blue,
-      // width: double.infinity,
-      // height: double.infinity,
-      //margin: EdgeInsets.all(20),
       padding: EdgeInsets.only(top: 20),
-
       child: Container(
-        //   margin: EdgeInsets.fromLTRB(15, 20, 20, 15),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,48 +90,45 @@ class Button1 extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      width: 200,
       child: Padding(
-          padding: EdgeInsets.only(top: 50, bottom: 50),
-          child: RaisedButton(
+          padding: EdgeInsets.only(top: 50, bottom: 50, right: 80),
+          child: FlatButton(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10)),
               onPressed: () {},
               color: Colors.lime[800],
-              child: Text("Follow", style: TextStyle(color: Colors.black)))),
+              child: Text(
+                "Follow",
+                style: TextStyle(color: Colors.white),
+              ))),
     );
   }
 }
 
-class ImageRow extends StatelessWidget {
+class IconRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      padding: EdgeInsets.only(top: 10),
       height: 100,
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        //mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Expanded(
-            child: Image(
-              image: AssetImage("assets/images/img1.jpeg"),
-            ),
+            child: Icon(Icons.android),
           ),
           Expanded(
-            child: Image(
-              image: AssetImage("assets/images/img1.jpeg"),
-            ),
+            child: Icon(Icons.file_download),
           ),
           Expanded(
-            child: Image(
-              image: AssetImage("assets/images/img1.jpeg"),
-            ),
+            child: Icon(Icons.location_on),
           ),
           Expanded(
-            child: Image(
-              image: AssetImage("assets/images/img1.jpeg"),
-            ),
+            child: Icon(Icons.location_on),
           ),
           Expanded(
-            child: Image(
-              image: AssetImage("assets/images/img1.jpeg"),
-            ),
+            child: Icon(Icons.location_on),
           ),
         ],
       ),
@@ -146,35 +140,125 @@ class SecondRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-
-        // width: 200,
-        // height: 200,
+        width: 150,
         child: Row(
-      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-      children: [
-        Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text("34",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-            Text("Posts",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.grey)),
+            Column(
+              children: [
+                Text("34",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text("Posts",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                        color: Colors.grey)),
+              ],
+            ),
+            Column(
+              children: [
+                Text("1256",
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
+                Text("Followers",
+                    style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 10,
+                        color: Colors.grey)),
+              ],
+            )
           ],
-        ),
-        Column(
+        ));
+  }
+}
+
+class ImageRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Image(
+                image: AssetImage('assets/images/img1.jpeg'),
+                fit: BoxFit.fill, // use this
+              ),
+            ),
+          ),
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Image(
+                image: AssetImage('assets/images/img3.jpeg'),
+                fit: BoxFit.fill, // use this
+              ),
+            ),
+          ),
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Image(
+                image: AssetImage('assets/images/img4.jpeg'),
+                fit: BoxFit.fill, // use this
+              ),
+            ),
+          ),
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Image(
+                image: AssetImage('assets/images/img5.jpeg'),
+                fit: BoxFit.fill, // use this
+              ),
+            ),
+          ),
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 1 / 1,
+              child: Image(
+                image: AssetImage('assets/images/img2.png'),
+                fit: BoxFit.fill, // use this
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class LastRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      padding: EdgeInsets.only(top: 10, right: 10, left: 10),
+      child: Text(
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled.",
+        overflow: TextOverflow.ellipsis,
+        textAlign: TextAlign.justify,
+        maxLines: 4,
+      ),
+    );
+  }
+}
+
+class TestRow extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+        padding: EdgeInsets.only(right: 10, left: 10),
+        child: Row(
           children: [
-            Text("1256",
-                style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16)),
-            Text("Followers",
-                style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 10,
-                    color: Colors.grey)),
+            Text(
+              "About ",
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            ),
           ],
-        )
-      ],
-    ));
+        ));
   }
 }
